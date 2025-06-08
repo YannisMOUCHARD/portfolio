@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Yannis MOUCHARD</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <style>
+        .home-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .home-content i {
+            font-size: 50px;
+            color: crimson;
+        }
+        .text-1 {
+            margin: 0;
+            padding: 0;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+<div class="scroll-up-btn">
+    <i class="fas fa-angle-up"></i>
+</div>
+<nav class="navbar">
+    <div class="max-width">
+        <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
+        <ul class="menu">
+            <li><a href="../index.html#home" class="menu-btn">Accueil</a></li>
+            <li><a href="../index.html#about" class="menu-btn">A propos de moi</a></li>
+            <li><a href="../index.html#services" class="menu-btn">Projets</a></li>
+            <li><a href="../index.html#skills" class="menu-btn">Compétences</a></li>
+            <li><a href="../index.html#bilan" class="menu-btn">Bilan personnel</a></li>
+            <li><a href="../index.html#contact" class="menu-btn">Contact</a></li>
+        </ul>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<section class="home" id="home">
+    <div class="max-width">
+        <div class="home-content">
+            <i class="fas fa-code"></i>
+            <div class="text-1">Gestion de fichier PYTHON</div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="max-width">
+        <h2 class="title">Projet</h2>
+        <div class="about-content">
+            <p>
+                <br></br>
+                Dans le cadre de la Saé "Gestion de fichier en Python", j'ai eu l'opportunité de travailler sur un jeu de données intéressant et pertinent pour le domaine de la santé. Le fichier "comorbidites.json", disponible sur Updago, contient des informations sur les comorbidités associées aux pathologies, traitements chroniques ou épisodes de soins repérés par la Caisse nationale de l’Assurance Maladie (CNAM) en France.
+                <br></br>
+                <br></br>
+                Le jeu de données est structuré de manière à fournir des informations détaillées sur les pathologies et les comorbidités associées.
+                <br></br>
+                L'objectif de la Saé était de transformer le fichier Json fourni pour obtenir un fichier csv avec les colonnes suivantes et uniquement pour les lignes où ces colonnes sont complètes et sans données aberrantes : PathologieLaPlusPrécise, NomComorbidité, Année, EffectifPathologie, EffectifComorbidité, Proportion, niveauPrioritaire.
+                <br></br>
+                Pour ce faire, j'ai réalisé un script Python "transformerJsonToCsv.py" qui permet de réaliser cette transformation. J'ai pris soin de respecter les bonnes pratiques de programmation (commentaires, indentation, découpage modulaire si besoin) et de produire un fichier csv lisible et exploitable dans Excel.
+                <br></br>
+                <br></br>
+                <a href="../SAE python/transformerJsonToCsv.py" download class="bouton-telechargement">Télécharger transformerJsonToCsv.py</a>
+                <br></br>
+                <br></br>
+                Ce code Python permet de rechercher le fichier "comorbidites.json" dans plusieurs emplacements courants tels que le bureau et le dossier de téléchargement de l'utilisateur. La fonction "find_comorbidites_file()" parcourt chaque emplacement et vérifie si le fichier existe à l'aide de la fonction "os.path.isfile()". Si le fichier est trouvé, la fonction renvoie son chemin d'accès complet. Sinon, elle renvoie "None".
+                <br></br>
+                Le code principal appelle la fonction "find_comorbidites_file()" pour rechercher le fichier et stocke le résultat dans la variable "file_path". Si le fichier est trouvé, le code charge les données JSON depuis le fichier à l'aide de la fonction "json.load()".
+                <br></br>
+                Ensuite, le code vérifie que la liste de données contient des dictionnaires avec un champ "fields". Si c'est le cas, le code définit les noms de colonnes à extraire dans la variable "selected_columns". Il trie ensuite les données par plusieurs colonnes à l'aide de la fonction "sorted()" et de la méthode "get()" des dictionnaires.
+                <br></br>
+                Le code traite ensuite la colonne "niveau_prioritaire" en remplaçant ses valeurs par la valeur la plus élevée pour chaque entrée. Enfin, le code écrit les données triées dans un fichier CSV avec un point-virgule comme délimiteur à l'aide de la classe "csv.DictWriter". Il vérifie également que toutes les colonnes sélectionnées ont des valeurs non vides avant d'écrire une entrée dans le fichier CSV.
+                <br></br>
+                Si le fichier "comorbidites.json" n'est pas trouvé, le code affiche un message d'erreur. Sinon, il affiche un message de succès et ouvre le fichier CSV avec l'application par défaut à l'aide de la fonction "subprocess.run()".
+                <br></br>
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
